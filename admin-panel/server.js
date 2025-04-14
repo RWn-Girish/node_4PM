@@ -27,6 +27,7 @@ app.use(session({
 
 app.use(passport.session());
 app.use(passport.initialize());
+app.use(passport.setAuthenticateUser);
 
 // routes
 app.use("/", require('./routes/index.routes'));
