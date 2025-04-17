@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const localStrategy = require("./config/passportStrategy");
 const session = require("express-session");
+const flash = require("connect-flash");
+const flashConnect = require('./config/flashConnect');
 
 // middleware
 app.set("view engine", 'ejs');
@@ -14,6 +16,7 @@ app.use("/", express.static(path.join(__dirname, 'public')))
 app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
 app.use(cookieParser());
 app.use(express.urlencoded());
+app.use(flash());
 
 app.use(session({
     name: 'admin',
@@ -28,6 +31,7 @@ app.use(session({
 app.use(passport.session());
 app.use(passport.initialize());
 app.use(passport.setAuthenticateUser);
+app.use(flashConnect.setFlashMessage);
 
 // routes
 app.use("/", require('./routes/index.routes'));

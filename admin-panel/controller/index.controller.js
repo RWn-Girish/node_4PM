@@ -31,6 +31,7 @@ exports.changePassword = async (req, res) => {
         if(curPass == req.user.password){
             if(curPass == newPass){
                 console.log("Current and New Password both are Same.");
+                req.flash('warning', "Current and New Password both are Same")
                 return res.redirect("back");
             }else{
                 if(newPass == confPass){
@@ -55,6 +56,7 @@ exports.changePassword = async (req, res) => {
 
 exports.loginAdmin = async (req, res) => {
     try {
+        req.flash("success", "Login Success");
         return res.redirect("/dashboard")  
     } catch (error) {
         return res.redirect("back");

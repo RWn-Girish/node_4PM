@@ -19,6 +19,7 @@ exports.addNewAdmin = async (req, res) => {
       req.body.image = imagePath;
     }
     let admin = await Admin.create({...req.body});
+    req.flash("success", "New Admin Added")
     return res.redirect("back");
   } catch (error) {
     console.log(error);
@@ -44,6 +45,7 @@ exports.updateAdmin = async (req, res) => {
         let imagePath = "";
         if (admin.image !== "") {
           imagePath = path.join(__dirname, "..", admin.image);
+          console.log(imagePath);
           try {
             await fs.unlinkSync(imagePath);
           } catch (error) {
