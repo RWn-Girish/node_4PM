@@ -21,6 +21,7 @@ routes.post("/reset-password", resetPassword);
 routes.use("/admin", passport.checkAuthenticat, require('./admin.routes'))
 routes.use("/category", passport.checkAuthenticat, require('./category.routes'))
 routes.use("/subcategory", passport.checkAuthenticat, require('./subCategory.routes'))
+routes.use("/extracategory", passport.checkAuthenticat, require('./extraCategory.routes'))
 
 
 module.exports = routes;

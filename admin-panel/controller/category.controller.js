@@ -1,6 +1,7 @@
 const Category = require("../models/category.model");
 const path = require('path');
 const fs = require('fs');
+const SubCategory = require("../models/subCatgegory.model");
 
 exports.getAllCategory = async (req, res) => {
     try {
@@ -63,6 +64,7 @@ exports.deleteCategory = async (req, res) => {
                 }
             }
             await Category.findByIdAndDelete(id);
+            await SubCategory.deleteMany({categoryId: id})
             req.flash("success", "Category Delete Success");
             return res.redirect("back");
         }
