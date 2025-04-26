@@ -38,5 +38,5 @@ app.use("/", require('./routes/index.routes'));
 
 
 app.listen(port, ()=> {
-    console.log('Server start at http://localhost:8005');
+    console.log('Server start at http://localhost:8005/user');
 })
