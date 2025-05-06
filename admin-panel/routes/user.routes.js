@@ -5,6 +5,7 @@ const routes = express.Router();
 
 routes.get("/", indexPage);
 routes.get("/single-product/:id", getProductDetail);
+routes.get("/add-favorite/:id",  getProductDetail);
 
 
 
