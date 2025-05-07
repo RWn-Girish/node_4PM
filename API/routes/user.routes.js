@@ -4,7 +4,9 @@ const uploadImage = require("../middleware/uploadImage");
 
 const routes = express.Router();
 
-routes.post("/add-user", uploadImage.single('profileImage'), addNewUser);
+routes.post("/register", uploadImage.single('profileImage'), addNewUser);
+
+
 routes.get("/", getAllUsers);
 routes.get("/single-user/:id", getUser);
 routes.put("/update-user/:id", updateUser);

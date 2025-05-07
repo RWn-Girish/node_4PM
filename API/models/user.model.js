@@ -23,6 +23,11 @@ const userSchema = mongoose.Schema({
     profileImage: {
         type:String
     },
+   
+},
+{
+    timestamps: true,
+    versionKey: false
 });
 
 
